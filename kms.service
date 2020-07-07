@@ -1,0 +1,12 @@
+[Unit]
+Description=kms-service
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/kms
+PIDFile=/run/kms.pid
+ExecStop=/bin/kill -9 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
